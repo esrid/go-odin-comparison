@@ -504,7 +504,7 @@ for {
     break
 }
 
-// Range with half-open interval [0, 3)
+// Range with half-open interval [0, 2)
 for i in 0..<3 {
     fmt.println(i)
 }
