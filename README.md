@@ -58,6 +58,10 @@ In **Odin**, visibility is controlled explicitly with attributes:
 @(private="file")  // restrict to file only
 ```
 
+> **Sources:**
+> - **Go:** [Effective Go — Names](https://go.dev/doc/effective_go#names) · [Go Spec — Exported identifiers](https://go.dev/ref/spec#Exported_identifiers)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 3 "Variables and constants" — Karl Zylinski · [Official Overview — Identifiers](https://odin-lang.org/docs/overview/#identifiers)
+
 ---
 
 ## Package
@@ -71,6 +75,10 @@ package main
 ```odin
 package main
 ```
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Packages](https://go.dev/tour/basics/1) · [Go Spec — Packages](https://go.dev/ref/spec#Packages)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 17 "Package system and code organization" — Karl Zylinski · [Official Overview — Packages](https://odin-lang.org/docs/overview/#packages)
 
 ---
 
@@ -102,6 +110,10 @@ import foo "core:fmt"
 // Odin does not support grouped import blocks import (...)
 ```
 
+> **Sources:**
+> - **Go:** [A Tour of Go — Imports](https://go.dev/tour/basics/2) · [Effective Go — Import paths](https://go.dev/doc/effective_go#blank_import)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 17 "Package system and code organization" — Karl Zylinski · [Official Overview — Import statement](https://odin-lang.org/docs/overview/#import-statement)
+
 ---
 
 ## Basic Types
@@ -120,6 +132,10 @@ Both languages have a zero value for every type (`0`, `false`, `""`, `nil`).
 | **String** | `string` (immutable byte sequence) | `string` (ptr + len), `cstring` (null-terminated) | |
 | **Pointer / Raw** | `*T` | `^T`, `rawptr` | Different syntax |
 | **Any** | `any` (alias `interface{}`) | `any`, `typeid` | |
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Basic types](https://go.dev/tour/basics/11) · [Go Spec — Types](https://go.dev/ref/spec#Types)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 4 "Some additional basics" — Karl Zylinski · [Official Overview — Basic types](https://odin-lang.org/docs/overview/#basic-types)
 
 ---
 
@@ -206,6 +222,10 @@ main :: proc() {
 
 > **Key difference:** Go achieves polymorphism via interfaces (implicit). Odin has no methods or interfaces — use procedures and unions instead.
 
+> **Sources:**
+> - **Go:** [Go Spec — Type declarations](https://go.dev/ref/spec#Type_declarations) · [Effective Go — Interfaces](https://go.dev/doc/effective_go#interfaces)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 5 "Making new types" — Karl Zylinski · [Official Overview — Type aliases](https://odin-lang.org/docs/overview/#type-alias)
+
 ---
 
 ## Enum
@@ -264,6 +284,10 @@ for dir, i in Direction {
 }
 ```
 
+> **Sources:**
+> - **Go:** [Go Spec — Iota](https://go.dev/ref/spec#Iota) · [Go by Example — Constants](https://gobyexample.com/constants)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 5 "Making new types" — Karl Zylinski · [Official Overview — Enums](https://odin-lang.org/docs/overview/#enum-types)
+
 ---
 
 ## Variable
@@ -314,6 +338,10 @@ green := "#00FF00"
 // Multiple assignment
 x, y := 1, 2
 ```
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Variables](https://go.dev/tour/basics/8) · [Go Spec — Variable declarations](https://go.dev/ref/spec#Variable_declarations)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 3 "Variables and constants" — Karl Zylinski · [Official Overview — Variables](https://odin-lang.org/docs/overview/#variable-declarations)
 
 ---
 
@@ -402,6 +430,10 @@ to_string :: proc{bool_to_string, int_to_string}
 some_method :: proc(cs: CustomType) {}
 ```
 
+> **Sources:**
+> - **Go:** [A Tour of Go — Functions](https://go.dev/tour/basics/4) · [Effective Go — Functions](https://go.dev/doc/effective_go#functions) · [Go Spec — Function types](https://go.dev/ref/spec#Function_types)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 7 "Procedures and scopes" — Karl Zylinski · [Official Overview — Procedures](https://odin-lang.org/docs/overview/#procedures)
+
 ---
 
 ## If Statement
@@ -439,6 +471,10 @@ if x := compute(); x < 0 {
     fmt.println("negative:", x)
 }
 ```
+
+> **Sources:**
+> - **Go:** [A Tour of Go — If](https://go.dev/tour/flowcontrol/5) · [Go Spec — If statements](https://go.dev/ref/spec#If_statements)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 4 "Some additional basics" — Karl Zylinski · [Official Overview — If statement](https://odin-lang.org/docs/overview/#if-statement)
 
 ---
 
@@ -542,6 +578,10 @@ for key, &value in some_map {
 ```
 
 > **Key difference:** In Go, `range` gives `(index, value)`. In Odin, `in` gives `(value, index)` — reversed order.
+
+> **Sources:**
+> - **Go:** [A Tour of Go — For](https://go.dev/tour/flowcontrol/1) · [Effective Go — For](https://go.dev/doc/effective_go#for) · [Go Spec — For statements](https://go.dev/ref/spec#For_statements)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 4 "Some additional basics" — Karl Zylinski · [Official Overview — For statement](https://odin-lang.org/docs/overview/#for-statement)
 
 ---
 
@@ -667,6 +707,10 @@ case f32:
 
 > **Key difference:** Odin enum switches are **exhaustive by default** — all variants must be handled. Use `#partial` to relax this. Go switches are never exhaustive.
 
+> **Sources:**
+> - **Go:** [A Tour of Go — Switch](https://go.dev/tour/flowcontrol/9) · [Go Spec — Switch statements](https://go.dev/ref/spec#Switch_statements)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 4 "Some additional basics" — Karl Zylinski · [Official Overview — Switch statement](https://odin-lang.org/docs/overview/#switch-statement)
+
 ---
 
 ## Struct
@@ -738,6 +782,10 @@ struct #packed { ... }     // remove padding
 struct #raw_union { ... }  // C-style union (shared memory)
 ```
 
+> **Sources:**
+> - **Go:** [A Tour of Go — Structs](https://go.dev/tour/moretypes/2) · [Effective Go — Composite literals](https://go.dev/doc/effective_go#composite_literals) · [Go Spec — Struct types](https://go.dev/ref/spec#Struct_types)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 5 "Making new types" — Karl Zylinski · [Official Overview — Struct type](https://odin-lang.org/docs/overview/#struct-type)
+
 ---
 
 ## Pointer
@@ -769,6 +817,10 @@ p^ = 100      // modify through pointer
 | Dereference | `*p` | `p^` |
 | Raw pointer | n/a | `rawptr` |
 | Arithmetic | No | No (use `ptr_offset` from `core:mem`) |
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Pointers](https://go.dev/tour/moretypes/1) · [Go Spec — Pointer types](https://go.dev/ref/spec#Pointer_types)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 6 "Pointers" — Karl Zylinski · [Official Overview — Pointers](https://odin-lang.org/docs/overview/#pointers)
 
 ---
 
@@ -834,6 +886,10 @@ x: [dynamic; 8]int // max capacity 8
 
 > **Key difference:** Go uses `append` (returns new slice). Odin uses `append(&x, ...)` (passes pointer). Odin also has a `[dynamic]` type distinct from slices.
 
+> **Sources:**
+> - **Go:** [A Tour of Go — Arrays](https://go.dev/tour/moretypes/6) · [A Tour of Go — Slices](https://go.dev/tour/moretypes/7) · [Effective Go — Arrays & Slices](https://go.dev/doc/effective_go#arrays) · [Go by Example — Slices](https://gobyexample.com/slices)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 8 "Fixed-memory containers" & Ch. 10 "More container types" — Karl Zylinski · [Official Overview — Arrays](https://odin-lang.org/docs/overview/#arrays) · [Official Overview — Dynamic arrays](https://odin-lang.org/docs/overview/#dynamic-arrays)
+
 ---
 
 ## Map
@@ -882,6 +938,10 @@ len(m)
 cap(m)
 reserve(&m, 64)
 ```
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Maps](https://go.dev/tour/moretypes/19) · [Effective Go — Maps](https://go.dev/doc/effective_go#maps) · [Go by Example — Maps](https://gobyexample.com/maps)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 10 "More container types" — Karl Zylinski · [Official Overview — Maps](https://odin-lang.org/docs/overview/#maps)
 
 ---
 
@@ -957,6 +1017,10 @@ Shape :: union #no_nil {
 Result :: union #shared_nil { Error_A, Error_B }
 ```
 
+> **Sources:**
+> - **Go:** [Go Spec — Interface types](https://go.dev/ref/spec#Interface_types) · [Go Spec — Type assertions](https://go.dev/ref/spec#Type_assertions) · [Go Blog — The Go type system for C++ programmers](https://go.dev/blog/laws-of-reflection)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 5 "Making new types" — Karl Zylinski · [Official Overview — Union type](https://odin-lang.org/docs/overview/#union-type)
+
 ---
 
 ## Error Handling
@@ -1022,6 +1086,10 @@ for &job in jobs {
 ```
 
 > **Key difference:** Go error handling is explicit `if err != nil` checks. Odin provides `or_return`/`or_else`/`or_continue` operators to propagate errors with less boilerplate, similar to Rust's `?` operator.
+
+> **Sources:**
+> - **Go:** [Effective Go — Errors](https://go.dev/doc/effective_go#errors) · [Go Blog — Error handling and Go](https://go.dev/blog/error-handling-and-go) · [Go Blog — Errors are values](https://go.dev/blog/errors-are-values)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 16 "Error handling" — Karl Zylinski · [Official Overview — or_return operator](https://odin-lang.org/docs/overview/#or_return-operator)
 
 ---
 
@@ -1167,6 +1235,10 @@ if val, ok := m.?; ok {
 > - Go methods on generic types require the type parameter from the type definition; Odin has no methods at all — all procedures are standalone.
 > - Odin can pass a **type itself** as a compile-time argument (`$T: typeid`) — Go cannot; it can only infer types from values.
 
+> **Sources:**
+> - **Go:** [Go Blog — An Introduction to Generics](https://go.dev/blog/intro-generics) · [Go Spec — Type parameters](https://go.dev/ref/spec#Type_parameter_declarations) · [Go 1.18 Release Notes — Generics](https://go.dev/doc/go1.18#generics)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 14 "Parametric — Writing generic code" — Karl Zylinski · [Official Overview — Parametric polymorphism](https://odin-lang.org/docs/overview/#parametric-polymorphism)
+
 ---
 
 ## Closures & Anonymous Functions
@@ -1272,6 +1344,10 @@ fmt.println(ops[1](3, 4)) // 12
 > - Odin anonymous procedures do NOT close over outer variables automatically. To share mutable state, explicitly pass a pointer as a parameter.
 > - Both treat procedures/functions as first-class values that can be stored in variables and passed as arguments.
 > - Go function types use `func(params) returns` syntax; Odin uses `proc(params) -> returns`.
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Function closures](https://go.dev/tour/moretypes/25) · [Effective Go — Functions](https://go.dev/doc/effective_go#functions) · [Go by Example — Closures](https://gobyexample.com/closures)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 7 "Procedures and scopes" — Karl Zylinski · [Official Overview — Procedures](https://odin-lang.org/docs/overview/#procedures)
 
 ---
 
@@ -1390,6 +1466,10 @@ foo :: proc() -> (result: int) {
 > - Odin `defer` runs at the end of **any scope** (block, if, for, etc.), not just at function return. Go `defer` only runs at function return.
 > - Odin adds `defer if condition { ... }` for conditional cleanup and `defer { ... }` for multi-statement blocks.
 > - In Go, a `defer func() { named_return = x }()` closure can modify named return values. Odin explicitly forbids this.
+
+> **Sources:**
+> - **Go:** [A Tour of Go — Defer](https://go.dev/tour/flowcontrol/12) · [Effective Go — Defer](https://go.dev/doc/effective_go#defer) · [Go Blog — Defer, Panic, and Recover](https://go.dev/blog/defer-panic-and-recover)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 7 "Procedures and scopes" — Karl Zylinski · [Official Overview — Defer statement](https://odin-lang.org/docs/overview/#defer-statement)
 
 ---
 
@@ -1549,6 +1629,10 @@ pool_example :: proc() {
 > - Go's `select` statement has no Odin equivalent — implement with condition variables or channels from `core:sync`.
 > - Odin passes `init_context` to threads so they inherit the parent's allocator and logger.
 
+> **Sources:**
+> - **Go:** [A Tour of Go — Goroutines](https://go.dev/tour/concurrency/1) · [A Tour of Go — Channels](https://go.dev/tour/concurrency/2) · [Effective Go — Concurrency](https://go.dev/doc/effective_go#concurrency) · [Go by Example — Goroutines](https://gobyexample.com/goroutines)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 24 "A tour of the core collection" — Karl Zylinski · [core:thread package docs](https://pkg.odin-lang.org/core/thread/)
+
 ---
 
 ## Memory Management & Allocators
@@ -1672,6 +1756,10 @@ for entry in track.bad_free_array {
 > - The temp allocator (`context.temp_allocator`) is an efficient scratch arena — allocate freely, bulk-free with `free_all`. Ideal for per-frame or per-request scratch work.
 > - Arena allocators give O(1) bulk deallocation with no per-object `free` calls — useful for loading game levels, HTTP requests, etc.
 
+> **Sources:**
+> - **Go:** [Effective Go — Allocation with new & make](https://go.dev/doc/effective_go#allocation_new) · [Go Blog — Getting to Go: The Journey of Go's Garbage Collector](https://go.dev/blog/ismmkeynote) · [Go by Example — Pointers](https://gobyexample.com/pointers)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 9 "Introduction to manual memory management", Ch. 12 "Implicit context" & Ch. 13 "Making manual memory management easier" — Karl Zylinski · [Official Overview — Implicit context system](https://odin-lang.org/docs/overview/#implicit-context-system)
+
 ---
 
 ## Type Casting & Conversion
@@ -1760,6 +1848,10 @@ b: f64 = f64(a)  // must be explicit
 > - `transmute` has no Go equivalent; the closest is `unsafe.Pointer` chains or `*(*T)(unsafe.Pointer(&x))`.
 > - Go type assertions (`x.(T)`) work on interface values. Odin union assertions (`x.(T)`) work on tagged union values — semantically similar but applied to a different type system feature.
 > - `auto_cast` has no Go equivalent — Go never infers conversion targets.
+
+> **Sources:**
+> - **Go:** [Go Spec — Conversions](https://go.dev/ref/spec#Conversions) · [Go Spec — Type assertions](https://go.dev/ref/spec#Type_assertions) · [Go by Example — Type Assertions](https://gobyexample.com/type-assertions)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 4 "Some additional basics" — Karl Zylinski · [Official Overview — Type conversions](https://odin-lang.org/docs/overview/#type-conversions)
 
 ---
 
@@ -1905,6 +1997,10 @@ back_again := string(c_str)                      // O(n): scans for null termina
 > - Odin has a separate `cstring` type for null-terminated C strings; conversion between `string` and `cstring` is explicit and has cost.
 > - `strings.Builder` in Go is a `bytes.Buffer` variant; Odin's `strings.Builder` wraps a `[dynamic]byte` with write helpers.
 
+> **Sources:**
+> - **Go:** [Go Blog — Strings, bytes, runes and characters](https://go.dev/blog/strings) · [pkg.go.dev/strings](https://pkg.go.dev/strings) · [pkg.go.dev/strings#Builder](https://pkg.go.dev/strings#Builder)
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 11 "Strings" — Karl Zylinski · [Official Overview — Strings](https://odin-lang.org/docs/overview/#strings) · [core:strings package docs](https://pkg.odin-lang.org/core/strings/)
+
 ---
 
 ## Bit Sets (Odin only)
@@ -1983,6 +2079,10 @@ vowels := bit_set['a'..'z']{'a', 'e', 'i', 'o', 'u'}
 | Subset | manual | `a <= b` |
 
 > **Key difference:** Odin's `bit_set` is built into the type system — exhaustiveness, enum names in debug output, and set operators are all handled by the compiler. In Go you manage the bit manipulation manually and lose type safety.
+
+> **Sources:**
+> - **Go:** [Go Spec — Iota](https://go.dev/ref/spec#Iota) · [Go by Example — Constants](https://gobyexample.com/constants) *(no native bit_set equivalent)*
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 15 "Bit-related types" — Karl Zylinski · [Official Overview — Bit sets](https://odin-lang.org/docs/overview/#bit-sets)
 
 ---
 
@@ -2099,3 +2199,7 @@ my_c_callback :: proc "c" () {
 > - Logger injection: replace the logger per-request (e.g., in a web server) so all log calls in the call tree automatically go to the right destination.
 > - Zero-cost: the context pointer is passed in a register under the `"odin"` calling convention — no heap allocation, no overhead compared to a plain function call.
 > - Go has no equivalent. The closest Go patterns are `context.Context` (passed explicitly as first argument) for cancellation/deadlines, and global allocator replacement via build tags.
+
+> **Sources:**
+> - **Go:** [pkg.go.dev/context](https://pkg.go.dev/context) · [Go Blog — Contexts and structs](https://go.dev/blog/context-and-structs) *(no equivalent — included for comparison)*
+> - **Odin:** *Understanding the Odin Programming Language*, Ch. 12 "Implicit context" — Karl Zylinski · [Official Overview — Implicit context system](https://odin-lang.org/docs/overview/#implicit-context-system)
